@@ -1,18 +1,15 @@
-function substituiNumerosPares(array) {
-	if (!array.length) return console.log(-1);
+function substituiPares(array) {
+    if(!array || !array.length) return "Não é um array válido"
 
-	const naoZero = (num) => num !== 0;
-	const numPar = (num) => num % 2 === 0;
-
-	for (let i = 0; i < array.length; i++) {
-		if (numPar(array[i]) && naoZero(array[i])) {
-			console.log(`trocando ${array[i]} por 0...`);
-			array[i] = 0;
-		} else if (!naoZero(array[i])) {
-			console.log('Ops, você já vale 0!');
-		}
-	}
-	console.log(array);
+    for (let i = 0; i < array.length; i++) {
+        if(array[i] === 0) {
+            console.log("Você já é 0...");
+        } else if (array[i] % 2 === 0) {
+            console.log(`Substituindo ${array[i]} por 0...`);
+            array[i] = 0;
+        }
+    }
+    return array;
 }
-
-substituiNumerosPares([2, 0, 3, 5]);
+let arr = [0, 5, 8, 6, 9, 7, 4];
+console.log(substituiPares(arr));
